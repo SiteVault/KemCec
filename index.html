@@ -1,0 +1,1518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kemcec - Premium Bedsheets & Fabrics</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #4a6fa5;
+            --secondary-color: #ff6b6b;
+            --accent-color: #ffbe0b;
+            --dark-color: #333;
+            --light-color: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+            padding-bottom: 5px;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            position: relative;
+            font-size: 1.3rem;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.7rem;
+            font-weight: bold;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1578898887932-d4c2dc0c7802?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #3a5a89;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-whatsapp {
+            background-color: #25D366;
+            margin-left: 1rem;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #1da851;
+        }
+
+        /* Categories Section */
+        .section-title {
+            text-align: center;
+            margin: 3rem 0;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            display: inline-block;
+            padding-bottom: 10px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-box {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .category-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .category-img {
+            height: 150px;
+            overflow: hidden;
+        }
+
+        .category-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .category-box:hover .category-img img {
+            transform: scale(1.1);
+        }
+
+        .category-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .category-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .category-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Products Section */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.3rem 0.6rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            z-index: 1;
+        }
+
+        .product-img {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .product-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .product-card:hover .product-img img {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .product-price {
+            color: var(--primary-color);
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-price span {
+            color: #999;
+            text-decoration: line-through;
+            font-size: 0.9rem;
+            margin-left: 0.5rem;
+            font-weight: normal;
+        }
+
+        .product-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .btn-add-to-cart {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-add-to-cart:hover {
+            background-color: #3a5a89;
+        }
+
+        .btn-quick-view {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .btn-quick-view:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            background-color: var(--light-color);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .testimonial-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 2rem;
+            padding: 1rem 0;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For IE and Edge */
+        }
+
+        .testimonial-container::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
+
+        .testimonial-card {
+            flex: 0 0 300px;
+            scroll-snap-align: start;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '\201C';
+            font-size: 5rem;
+            position: absolute;
+            top: -20px;
+            left: 10px;
+            color: rgba(74, 111, 165, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .author-info h4 {
+            font-size: 1rem;
+            margin-bottom: 0.2rem;
+            color: var(--dark-color);
+        }
+
+        .author-info p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+        .star-rating {
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 0.8rem 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0.8rem 1.5rem;
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #e05555;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--secondary-color);
+            bottom: 0;
+            left: 0;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+        /* WhatsApp Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25D366;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            animation: pulse 2s infinite;
+            text-decoration: none;
+        }
+
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            width: 80%;
+            max-width: 800px;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            animation: modalFadeIn 0.3s;
+        }
+
+        @keyframes modalFadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: #666;
+            cursor: pointer;
+            z-index: 1;
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .close-btn:hover {
+            color: var(--secondary-color);
+        }
+
+        .modal-body {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-img {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .modal-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            padding: 2rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .modal-price {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .modal-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .modal-features {
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-features h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .modal-features ul {
+            list-style-position: inside;
+        }
+
+        .modal-features li {
+            margin-bottom: 0.3rem;
+        }
+
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                width: 100%;
+                margin-top: 1rem;
+                display: none;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+                margin-left: 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .hero {
+                height: 60vh;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .categories {
+                flex-wrap: nowrap;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 1rem;
+                justify-content: flex-start;
+            }
+
+            .category-box {
+                flex: 0 0 180px;
+                scroll-snap-align: start;
+            }
+
+            .btn {
+                padding: 0.7rem 1rem;
+                font-size: 0.9rem;
+            }
+
+            .modal-content {
+                width: 95%;
+                margin: 2% auto;
+            }
+
+            .modal-img {
+                height: 300px;
+            }
+
+            .whatsapp-float {
+                width: 50px;
+                height: 50px;
+                bottom: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 50vh;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-form input {
+                border-radius: 5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .newsletter-form button {
+                border-radius: 5px;
+            }
+
+            .modal-body {
+                flex-direction: column;
+            }
+
+            .modal-img {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">KEM<span>CEC</span></a>
+            
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#categories">Categories</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li>
+                        <div class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">0</span>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Premium Bedsheets & Fabrics</h1>
+                <p>Discover our luxurious collection of high-quality bedsheets and fabrics that combine comfort with elegant designs.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn">Explore Collection</a>
+                    <a href="https://api.whatsapp.com/send?phone=%2B2348076195223" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Chat with Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Categories</h2>
+            </div>
+            
+            <div class="categories">
+                <div class="category-box" data-category="bedsheets">
+                    <div class="category-img">
+                        <img src="picture/bedsheet.jpg" alt="Bedsheets">
+                    </div>
+                    <div class="category-info">
+                        <h3>Bedsheets</h3>
+                        <p>Luxurious comfort for your bedroom</p>
+                    </div>
+                </div>
+                
+                <div class="category-box" data-category="curtains">
+                    <div class="category-img">
+                        <img src="picture/curtain.jpg" alt="Curtains">
+                    </div>
+                    <div class="category-info">
+                        <h3>Curtains</h3>
+                        <p>Elegant window treatments</p>
+                    </div>
+                </div>
+                
+                <div class="category-box" data-category="fabrics">
+                    <div class="category-img">
+                        <img src="picture/cloth material.jpg" alt="Cloth Fabrics">
+                    </div>
+                    <div class="category-info">
+                        <h3>Cloth Fabrics</h3>
+                        <p>Premium materials for clothing</p>
+                    </div>
+                </div>
+                <div class="category-box" data-category="fabrics">
+                    <div class="category-img">
+                        <img src="picture/window blind.jpg" alt="Cloth Fabrics">
+                    </div>
+                    <div class="category-info">
+                        <h3>Window blinds</h3>
+                        <p>Luxurious window equiment for your taste</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="products" class="section-padding">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Products</h2>
+            </div>
+            
+            <div class="products">
+                <!-- Product 1 -->
+                <div class="product-card" data-product="1">
+                    <div class="product-badge">Best Seller</div>
+                    <div class="product-img">
+                        <img src="picture/bedsheet (2).jpg" alt="Luxury Cotton Bedsheet">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Luxury Cotton Dior's Bedsheet</h3>
+                        <div class="product-price">New: ₦9,000 <span>Old: ₦14,000</span></div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card" data-product="2">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="picture/window blind.jpg" alt="luxurious window blinds">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Day & Night Zebra Window Blinds</h3>
+                        <div class="product-price">Price on Request<span>₦27,500</span></div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card" data-product="3">
+                    <div class="product-badge">In Stock</div>
+                    <div class="product-img">
+                        <img src="picture/Printed Floral Fabric.jpg" alt="Egyptian Cotton Duvet">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Printed Floral Fabric</h3>
+                        <div class="product-price">Contact Us for Price</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card" data-product="4">
+                    <div class="product-badge">Sale</div>
+                    <div class="product-img">
+                        <img src="picture/curtains.jpg" alt="Linen Curtain Panel">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Noir Luxe Curtain</h3>
+                        <div class="product-price">Price on Request</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card" data-product="5">
+                    <div class="product-badge">New</div>
+                    <div class="product-img">
+                        <img src="picture/duevt.jpg" alt="Premium Cotton Fabric" style="background-position: center;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Ocean Calm Duvet Set</h3>
+                        <div class="product-price">₦65,000 <span>₦80,000</span></div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 6 -->
+                <div class="product-card" data-product="6">
+                    <div class="product-badge">New Sales</div>
+                    <div class="product-img">
+                        <img src="picture/white.jpg" alt="Premium Cotton Fabric" style="background-position: center;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">InkWhisper Fabric-Floral & Feather Motif</h3>
+                        <div class="product-price">Price on Request</div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 7 -->
+                <div class="product-card" data-product="7">
+                    <div class="product-badge">HOT</div>
+                    <div class="product-img">
+                        <img src="picture/purple.jpg" alt="Premium Cotton Fabric" style="background-position: center;">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Rose Mist Violet Set</h3>
+                        <div class="product-price">₦10,000 <span>₦16,000</span></div>
+                        <div class="product-actions">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Customers Say</h2>
+            </div>
+            
+            <div class="testimonial-container">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card">
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The quality of Kemcec's bedsheets is unmatched. I've never slept so comfortably before. The fabric is so soft yet durable. Will definitely purchase again!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Amina Jibril">
+                        </div>
+                        <div class="author-info">
+                            <h4>Amina Jibril</h4>
+                            <p>Lagos, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card">
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="testimonial-text">"I ordered curtains for my living room and they transformed the space completely. The customer service was excellent and the product arrived on time."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Emeka Okafor">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emeka Okafor</h4>
+                            <p>Abuja, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card">
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"The velvet upholstery fabric I purchased exceeded my expectations. It's now the centerpiece of my living room furniture. Quality is top-notch!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Chioma Eze">
+                        </div>
+                        <div class="author-info">
+                            <h4>Chioma Eze</h4>
+                            <p>Port Harcourt, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="testimonial-card">
+                    <div class="star-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                    </div>
+                    <p class="testimonial-text">"Great experience shopping with Kemcec. The WhatsApp ordering process was smooth and they were very responsive to all my questions before purchase."</p>
+                    <div class="testimonial-author">
+                        <div class="author-img">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Tunde Lawal">
+                        </div>
+                        <div class="author-info">
+                            <h4>Tunde Lawal</h4>
+                            <p>Ibadan, Nigeria</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with our latest products, exclusive offers, and interior design tips straight to your inbox.</p>
+            
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email address" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>KEMCEC</h3>
+                    <p>Premium bedsheets and fabrics for your home. Quality materials, elegant designs, and exceptional comfort.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/oisawemenkemi?mibextid=kFxxJD"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="https://api.whatsapp.com/send?phone=%2B2348076195223"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#categories">Categories</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="https://api.whatsapp.com/send?phone=%2B2348076195223?text=Hi%20Kemcec,%20I'm%20interested%20in%20your%20bedsheets">Bedsheets</a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=%2B2348076195223?text=Hi%20Kemcec,%20I'm%20interested%20in%20your%20curtains">Curtains</a></li>
+                        <li><a href="https://api.whatsapp.com/send?phone=%2B2348076195223?text=Hi%20Kemcec,%20I'm%20interested%20in%20your%20cloth%20fabrics">Cloth Fabrics</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Fabric Street, Lagos, Nigeria</li>
+                        <li><i class="fas fa-phone"></i> +234 807 629 5223</li>
+                        <li><i class="fas fa-envelope"></i> oisakem5@.com</li>
+                        <li><i class="fab fa-whatsapp"></i> <a href="https://api.whatsapp.com/send?phone=%2B2348076195223">Chat on WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Kemcec. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://api.whatsapp.com/send?phone=%2B2348076195223" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Product Modal -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div class="modal-body">
+                <div class="modal-img">
+                    <img id="modalProductImg" src="" alt="">
+                </div>
+                <div class="modal-info">
+                    <h2 id="modalProductTitle" class="modal-title">Product Title</h2>
+                    <div id="modalProductPrice" class="modal-price">₦0.00</div>
+                    <p id="modalProductDescription" class="modal-description">
+                        Loading product description...
+                    </p>
+                    <div class="modal-features">
+                        <h4>Features:</h4>
+                        <ul id="modalProductFeatures">
+                            <li>Premium quality material</li>
+                            <li>Breathable and comfortable</li>
+                            <li>Easy to wash and maintain</li>
+                            <li>Long-lasting durability</li>
+                            <li>Available in multiple colors</li>
+                        </ul>
+                    </div>
+                    <div class="modal-actions">
+                        <a id="modalWhatsappBtn" href="https://api.whatsapp.com/send?phone=%2B2348076195223" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> Inquire on WhatsApp</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mainNav = document.getElementById('mainNav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainNav.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (mainNav.classList.contains('active')) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Product Data
+        const products = {
+            1: {
+                title: "Luxury Cotton Dior's Bedsheet",
+                price: "New: ₦9,000",
+                oldPrice: "Old: ₦14,000",
+                description: "Our premium luxury cotton bedsheets are made from 100% Egyptian cotton with a thread count of 600. They offer exceptional softness, breathability, and durability for the perfect night's sleep. Available in multiple sizes from single to king size.",
+                features: [
+                    "100% Premium Egyptian Cotton",
+                    "600 Thread Count for Ultra Softness",
+                    "Breathable and Temperature Regulating",
+                    "Hypoallergenic and Dust Mite Resistant",
+                    "Machine Washable at 40°C",
+                    "Available in 6 Elegant Colors"
+                ],
+                image: "picture/bedsheet (2).jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20Luxury%20Cotton%20Dior's%20Bedsheet"
+            },
+            2: {
+                title: "Day & Night Zebra Window Blinds",
+                price: "Contact Us for Price",
+                description: "Stylish dual-layer blinds with alternating sheer and opaque stripes for perfect light control. Switch between filtered light and full privacy with a simple chain pull.",
+                features: [
+                    "Dual-layer design for day & night use",
+                    "Smooth chain operation",
+                    "Mordern, clean look",
+                    "Easy to install and maintain",
+                    "Light-filtering + privacy control"
+                ],
+                image: "picture/window blind.jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20Day%20&%20Night%20Zebra%20Window%20Blinds"
+            },
+            3: {
+                title: "Printed Floral Fabric",
+                price: "Contact Us for Price",
+                description: "Beautifully soft fabric with vibrant floral prints, perfect for clothing, curtains, crafts, or decor. Adds a fresh, elegant touch to any project",
+                features: [
+                    "Eye-cathing floral design",
+                    "Soft, breathable material",
+                    "Ideal for garments & home decor",
+                    "Easy to cut, sew & wash",
+                    "Available in various colors and patterns"
+                ],
+                image: "picture/Printed Floral Fabric.jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20Printed%20Floral%20Fabric"
+            },
+            4: {
+                title: "Noir Luxe Curtain",
+                price: "Contact Us for Price",
+                description: "Elevate your space with the rich elegance of Noir Luxe Curtains. Their deep black tone adds mordern sophistication while offering comfort, privacy, and style in one effortless design.",
+                features: [
+                    "Light Filtering for Soft Ambiance",
+                    "Natural Wrinkled Texture",
+                    "Eco-Friendly and Sustainable",
+                    "Available in 3 Neutral Shades",
+                    "Includes Matching Tiebacks"
+                ],
+                image: "picture/curtains.jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20Noir%20Luxe%20Curtain"
+            },
+            5: {
+                title: "Ocean Calm Duvet Set",
+                price: "₦65,000",
+                description: "Drift into peaceful sleep with the Ocean Calm Duvet Set. Inspired by the soothing hues of the sea, this soft and breathable bedding brings a wave of comfort and tranquility to your bedroom.",
+                features: [
+                    "Serene ocean blue color for a calming vibe",
+                    "Soft, breathable fabric for all-season comfort",
+                    "Includes duvet cover and mathing pillowcases",
+                    "Durable stitching and easy-care design",
+                    "Ideal for modern, coastal, or minimalist bedroom"
+                ],
+                image: "picture/duevt.jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20ocean%20calm%20Duvet%20set"
+            },
+            6: {
+                title: "InkWhisper Fabric-Floral & Feather Motif",
+                price: "Contact Us for Price",
+                description: "The InkWhisper Fabric features an artistic blend of black floral and feathery prints scattered over a white background with fine lineworks. Ideal for fashion, decor, or craft projects that call for a bold yet elegant statement",
+                features: [
+                    "Unique black floral and feather design",
+                    "Soft white base with artistic scattered lines",
+                    "Versatile for clothing, upholstery, and crafts",
+                    "Durable and easy to work with",
+                    "Available by the meter/yard"
+                ],
+                image: "picture/white.jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20InkWhisper%20Fabric-Floral%20&%20Feather%20Motif"
+            },
+            7: {
+                title: "Rose Mist Violet Set",
+                price: "Contact Us for Price",
+                description: "Soft, elegant, and romantic. The Rose Mist Violet set brings charm and serenity to your bedroom. With delicate pink floral accents over a dreamy violet base, it's perfect for a calming, stylish sleep space",
+                features: [
+                    "Soft fabric for cozy, breathable comfort",
+                    "Romantic pink floral pattern on a violet background",
+                    "Includes bedsheet and matching pillowcases",
+                    "Easy to wash and maintain",
+                    "Perfect for feminine, mordern, or minimal interiors"
+                ],
+                image: "picture/purple.jpg",
+                whatsappText: "Hi%20Kemcec,%20I'm%20interested%20in%20your%20Rose%20Mist%20Violet%20Set"
+            }
+        };
+
+        // Product Modal Functionality
+        const modal = document.getElementById('productModal');
+        const modalProductImg = document.getElementById('modalProductImg');
+        const modalProductTitle = document.getElementById('modalProductTitle');
+        const modalProductPrice = document.getElementById('modalProductPrice');
+        const modalProductDescription = document.getElementById('modalProductDescription');
+        const modalProductFeatures = document.getElementById('modalProductFeatures');
+        const modalWhatsappBtn = document.getElementById('modalWhatsappBtn');
+        const quickViewButtons = document.querySelectorAll('.btn-quick-view');
+        const closeBtn = document.querySelector('.close-btn');
+        const cartCount = document.querySelector('.cart-count');
+        let cartItems = 0;
+
+        // Open Modal
+        quickViewButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const productCard = this.closest('.product-card');
+                const productId = productCard.getAttribute('data-product');
+                const product = products[productId];
+                
+                modalProductImg.src = product.image;
+                modalProductImg.alt = product.title;
+                modalProductTitle.textContent = product.title;
+                
+                if (product.oldPrice) {
+                    modalProductPrice.innerHTML = `${product.price} <span>${product.oldPrice}</span>`;
+                } else {
+                    modalProductPrice.textContent = product.price;
+                }
+                
+                modalProductDescription.textContent = product.description;
+                
+                // Clear previous features
+                modalProductFeatures.innerHTML = '';
+                
+                // Add new features
+                product.features.forEach(feature => {
+                    const li = document.createElement('li');
+                    li.textContent = feature;
+                    modalProductFeatures.appendChild(li);
+                });
+                
+                // Update WhatsApp link
+                modalWhatsappBtn.href = `https://api.whatsapp.com/send?phone=%2B2348076195223=${product.whatsappText}`;
+                
+                // Show modal
+                modal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+                
+                // Store product ID for add to cart
+                modalAddToCart.setAttribute('data-product', productId);
+            });
+        });
+
+        // Close Modal
+        closeBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Add to Cart from Modal
+        const modalAddToCart = document.getElementById('modalAddToCart');
+        modalAddToCart.addEventListener('click', function() {
+            cartItems++;
+            cartCount.textContent = cartItems;
+            alert('Product added to cart!');
+        });
+
+        // Add to Cart from Product Cards
+        document.querySelectorAll('.btn-add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                cartItems++;
+                cartCount.textContent = cartItems;
+                const productCard = this.closest('.product-card');
+                const productId = productCard.getAttribute('data-product');
+                alert(`${products[productId].title} added to cart!`);
+            });
+        });
+
+        // Category Box Click Event (linking to WhatsApp)
+        document.querySelectorAll('.category-box').forEach(box => {
+            box.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                let message = `Hi%20Kemcec,%20I'm%20interested%20in%20your%20${category}%20collection.%20Please%20send%20me%20more%20information.`;
+                window.location.href = `https://api.whatsapp.com/send?phone=%2B2348076195223?text=${message}`;
+            });
+        });
+
+        // Newsletter Form Submission
+        const newsletterForm = document.querySelector('.newsletter-form');
+        newsletterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const emailInput = this.querySelector('input[type="email"]');
+            alert(`Thank you for subscribing with ${emailInput.value}! You'll receive our latest updates soon.`);
+            emailInput.value = '';
+        });
+
+        // Update WhatsApp number in all links
+        function updateWhatsappNumber() {
+            const whatsappNumber = "08053886599"; // Replace with actual number
+            const whatsappLinks = document.querySelectorAll('a[href*="https://api.whatsapp.com/send?phone=%2B2348076195223"]');
+            
+            whatsappLinks.forEach(link => {
+                link.href = link.href.replace(/wa.me\/\d+/, `wa.me/${whatsappNumber}`);
+            });
+        }
+
+        updateWhatsappNumber();
+    </script>
+</body>
+</html>
