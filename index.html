@@ -1505,10 +1505,10 @@
         // Update WhatsApp number in all links
         function updateWhatsappNumber() {
             const whatsappNumber = "08053886599"; // Replace with actual number
-            const whatsappLinks = document.querySelectorAll('a[href="https://api.whatsapp.com/send?phone=%2B2348076195223"]');
+            const whatsappLinks = document.querySelectorAll(' a href="https://api.whatsapp.com/send?phone=%2B2348076195223" ');
             
             whatsappLinks.forEach(link => {
-                link.href = link.href.replace(/wa.me\/\d+/, `wa.me/${whatsappNumber}`);
+                link.href = link.href.replace(`wa.me/${whatsappNumber}`);
             });
         }
 
