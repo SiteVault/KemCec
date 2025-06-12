@@ -1441,7 +1441,7 @@
                 });
                 
                 // Update WhatsApp link
-                modalWhatsappBtn.href = `https://api.whatsapp.com/send?phone=%2B2348076195223=${product.whatsappText}`;
+                modalWhatsappBtn.href = `https://api.whatsapp.com/send?phone=2348076195223&text=${product.whatsappText}`;
                 
                 // Show modal
                 modal.style.display = 'block';
@@ -1489,7 +1489,7 @@
             box.addEventListener('click', function() {
                 const category = this.getAttribute('data-category');
                 let message = `Hi%20Kemcec,%20I'm%20interested%20in%20your%20${category}%20collection.%20Please%20send%20me%20more%20information.`;
-                window.location.href = `https://api.whatsapp.com/send?phone=%2B2348076195223?text=${message}`;
+                window.location.href = `https://api.whatsapp.com/send?phone=2348076195223?text=${message}`;
             });
         });
 
