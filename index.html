@@ -1501,18 +1501,20 @@
             alert(`Thank you for subscribing with ${emailInput.value}! You'll receive our latest updates soon.`);
             emailInput.value = '';
         });
+    // Update WhatsApp number in all links
+    function updateWhatsappNumber() {
+        const rawNumber = "08076195223";
+        const formattedNumber = "2348076195223"; // Nigeria country code added for WhatsApp API format
 
-        // Update WhatsApp number in all links
-        function updateWhatsappNumber() {
-            const whatsappNumber = "2348076195223"; // Replace with actual number
-            const whatsappLinks = document.querySelectorAll(' a href="https://api.whatsapp.com/send?phone=%2B2348076195223" ');
-            
-            whatsappLinks.forEach(link => {
-                link.href = link.href.replace(`wa.me/${whatsappNumber}`);
-            });
-        }
+        const whatsappLinks = document.querySelectorAll('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
 
-        updateWhatsappNumber();
+        whatsappLinks.forEach(link => {
+            // Replace old number with the new formatted number
+            link.href = link.href.replace(/(\d{11,})/, formattedNumber);
+        });
+    }
+
+    updateWhatsappNumber();
     </script>
 </body>
 </html>
